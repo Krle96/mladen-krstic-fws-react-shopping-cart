@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -6,9 +7,12 @@ export const Footer = () => {
       <div className="wrap">
         <div className="footer__wrap">
           <div className="footer__logo">
-            <a href="/" className="header__home">
+            {/* <a href="/" className="header__home">
               <img src="/assets/images/LogoFooter.png" alt="" />
-            </a>
+            </a> */}
+            <Link to="/" className="header__home">
+              <img src="/assets/images/LogoFooter.png" alt="" />
+            </Link>
           </div>
           <div className="copyright">
             <span>Copyright © 2022 forwardslashny.com</span>{' '}

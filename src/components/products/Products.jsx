@@ -4,8 +4,8 @@ const Products = ({products}) => {
   return (
     <>
       {console.log(products)}
-      {products.map((product, index) => (
-        <Product key={index} product={product} />
+      {products.map(product => (
+        <Product key={product.id} product={product} />
       ))}
     </>
   );

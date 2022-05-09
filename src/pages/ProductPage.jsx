@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Product} from '../components/products/Product';
 import Products from '../components/products/Products';
 // import api from '../api/products';
 import ProductService from '../domain/product/ProductService';
@@ -25,39 +24,22 @@ export const ProductPage = () => {
 
   const [products, setProducts] = useState([]);
 
-  // const fetchProducts = async () => {
-  //   try {
-  //     // const response = await api.get('/products/');
-  //     const response = await ProductService.searchProduct();
-  //     setProducts(response.items);
-  //   } catch (err) {
-  //     if (err.response) {
-  //       // Not in the 200 response range
-  //       console.log(err.response.data);
-  //       console.log(err.response.status);
-  //       console.log(err.response.headers);
-  //     } else {
-  //       console.log(`Error: ${err.message}`);
-  //     }
-  //   }
-  // };
-
   const fetchProducts = async () => {
     try {
       // const response = await api.get('/products/');
       const response = await ProductService.searchProduct();
       console.log(response);
       setProducts(response.items);
-    } catch (err) {}
-    //   if (err.response) {
-    //     // Not in the 200 response range
-    //     console.log(err.response.data);
-    //     console.log(err.response.status);
-    //     console.log(err.response.headers);
-    //   } else {
-    //     console.log(`Error: ${err.message}`);
-    //   }
-    // }
+    } catch (err) {
+      if (err.response) {
+        // Not in the 200 response range
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      } else {
+        console.log(`Error: ${err.message}`);
+      }
+    }
   };
 
   useEffect(() => {
@@ -79,7 +61,11 @@ export const ProductPage = () => {
                   <span className="pretitle">SHOP</span>
                   <h2 className="section-title">SAME OLD SAME OLD</h2>
                   <div className="row cards__wrapper">
-                    <Products products={products} />
+                    {products.length > 0 ? (
+                      <Products products={products} />
+                    ) : (
+                      'No task to show'
+                    )}
                   </div>
                   <div className="row cards__wrapper"></div>
                 </div>

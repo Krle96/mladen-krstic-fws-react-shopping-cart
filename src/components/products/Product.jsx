@@ -18,7 +18,13 @@ export const Product = ({product}) => {
         </div>
         <div className="cards__item-footer">
           <div className="quantity">
-            <input className="qty" type="number" step="1" min="1" value="0" />
+            <input
+              className="qty"
+              type="number"
+              step="1"
+              min="1"
+              defaultValue="0"
+            />
             <div className="quantity__button">
               <button className="quantity-add js-inc quantity-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -32,7 +38,8 @@ export const Product = ({product}) => {
               </button>
             </div>
           </div>
-          <SharedBtn onClick={() => console.log('clicked on add to cart')}>
+          <SharedBtn
+            onClick={() => console.log(`dodao proizvod: ${product.name}`)}>
             ADD TO CART
           </SharedBtn>
           <div className="heart">

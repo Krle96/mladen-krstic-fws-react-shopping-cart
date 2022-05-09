@@ -8,26 +8,33 @@ export const Header = () => {
       <div className="wrap">
         <div className="header__container">
           <div className="header__home-logo">
-            <a href="/" className="header__home">
+            {/* <a href="/" className="header__home">
               {' '}
               <img
                 src="/assets/images/LogoHeader.png"
                 alt=""
                 className="header__logo"
               />{' '}
-            </a>
+            </a> */}
+            <Link to="/" className="header__home">
+              <img
+                src="/assets/images/LogoHeader.png"
+                alt=""
+                className="header__logo"
+              />
+            </Link>
           </div>
 
           <nav className="main-nav">
             <ul className="main-nav__list" role="menubar">
               <li className="main-nav__list-item" role="menuitem">
-                <a href="#" className="main-nav__list-link">
+                <a href="/" className="main-nav__list-link">
                   ABOUT US
                 </a>
               </li>
 
               <li className="main-nav__list-item" role="menuitem">
-                <a href="#" className="main-nav__list-link">
+                <a href="/" className="main-nav__list-link">
                   LOCATIONS
                 </a>
               </li>
@@ -52,7 +59,7 @@ export const Header = () => {
             <span className="main-nav-cart-qty">3</span>
           </div>
 
-          <a href="#" className="site-header__hamburger hamburger js-menu-btn">
+          <a href="/" className="site-header__hamburger hamburger js-menu-btn">
             <span></span>
           </a>
         </div>

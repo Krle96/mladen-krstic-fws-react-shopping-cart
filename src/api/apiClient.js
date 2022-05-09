@@ -34,6 +34,7 @@ class ApiClient {
                             console.log(`Item ${item.product_id} amount ${item.amount} valid!`);
                         });
                         resolve();
+                        // console.log('radi checkout')
                     } catch (exception) {
                         console.log(exception);
                         reject(new Exception('INVALID_PURCHASE_DATA', 406, data));

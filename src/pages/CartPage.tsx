@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {CartItem} from '../components/cart/CartItem';
 import SharedBtn from '../components/shared/SharedBtn';
+import CartService from '../domain/cart/cartService';
 
 export const CartPage = () => {
   const navigate = useNavigate();
@@ -36,7 +37,8 @@ export const CartPage = () => {
                       <SharedBtn
                         variant="black"
                         onClick={() => {
-                          console.log('checkout clicked');
+                          // console.log('checkout clicked');
+                          CartService.completeCheckout();
                         }}>
                         CHECKOUT
                       </SharedBtn>
