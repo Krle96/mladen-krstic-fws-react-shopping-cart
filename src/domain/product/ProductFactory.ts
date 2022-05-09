@@ -3,7 +3,7 @@ import ProductEntity from './ProductEntity';
 type ResponseType = {
   id: number;
   name: string;
-  photoUrl: string;
+  photo: string;
   price: number;
 };
 
@@ -23,7 +23,7 @@ export default class ProductFactory {
         makeInstance
           .setId(item.id)
           .setName(item.name)
-          .setPhotoUrl(item.photoUrl)
+          .setPhotoUrl(item.photo)
           .setPrice(item.price);
 
         items.push(makeInstance);
@@ -32,7 +32,6 @@ export default class ProductFactory {
 
     return {
       items: items,
-      //   data,
     };
   }
 

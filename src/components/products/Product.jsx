@@ -1,20 +1,20 @@
 import React from 'react';
 import SharedBtn from '../shared/SharedBtn';
 
-export const Product = () => {
+export const Product = ({product}) => {
   return (
     <div className="col-xl-4 col-lg-4 col-md-6">
       <div className="cards__item">
         <div className="cards__item-body">
           <div className="cards__item-body-image">
             <img
-              src="/assets/images/camera.png"
-              alt=""
+              src={product.photoUrl}
+              alt={product.name}
               className="cards__item-img"
             />
           </div>
-          <span className="cards__item-body-name">RANGEFINDER CAMERA</span>
-          <span className="cards__item-body-price">$36.5</span>
+          <span className="cards__item-body-name">{product.name}</span>
+          <span className="cards__item-body-price">${product.price}</span>
         </div>
         <div className="cards__item-footer">
           <div className="quantity">

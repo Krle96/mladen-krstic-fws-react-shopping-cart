@@ -21,13 +21,13 @@ export const Header = () => {
           <nav className="main-nav">
             <ul className="main-nav__list" role="menubar">
               <li className="main-nav__list-item" role="menuitem">
-                <a href="javascript:;" className="main-nav__list-link">
+                <a href="#" className="main-nav__list-link">
                   ABOUT US
                 </a>
               </li>
 
               <li className="main-nav__list-item" role="menuitem">
-                <a href="javascript:;" className="main-nav__list-link">
+                <a href="#" className="main-nav__list-link">
                   LOCATIONS
                 </a>
               </li>
@@ -52,9 +52,7 @@ export const Header = () => {
             <span className="main-nav-cart-qty">3</span>
           </div>
 
-          <a
-            href="javascript:"
-            className="site-header__hamburger hamburger js-menu-btn">
+          <a href="#" className="site-header__hamburger hamburger js-menu-btn">
             <span></span>
           </a>
         </div>

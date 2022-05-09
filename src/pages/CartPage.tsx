@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {CartItem} from '../components/cart/CartItem';
 import SharedBtn from '../components/shared/SharedBtn';
 
@@ -36,7 +36,7 @@ export const CartPage = () => {
                       <SharedBtn
                         variant="black"
                         onClick={() => {
-                          console.log('back clicked');
+                          console.log('checkout clicked');
                         }}>
                         CHECKOUT
                       </SharedBtn>

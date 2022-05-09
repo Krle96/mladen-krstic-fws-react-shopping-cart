@@ -4,18 +4,7 @@
 //     baseURL: 'http://localhost:3500'
 // });
 
-class Exception {
-    constructor(message, code, data = {}) {
-        this._message = message;
-        this._code = code;
-        this._data = data;
-    }
-
-    get data() {
-        return this._data;
-    }
-}
-
+import Exception from "./Exception";
 
 class ApiClient {
     get(url, data) {
