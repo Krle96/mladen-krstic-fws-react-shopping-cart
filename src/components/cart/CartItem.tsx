@@ -1,4 +1,5 @@
 import React from 'react';
+import SharedBtn from '../shared/SharedBtn';
 
 export const CartItem = () => {
   return (
@@ -17,9 +18,11 @@ export const CartItem = () => {
         <span className="cart__item-info">AMOUNT: 1</span>
       </div>
       <div className="cart__item-button">
-        <a className="btn btn--sm" href="javascript:;">
+        <SharedBtn
+          onClick={() => console.log('remove from cart clicked')}
+          size="sm">
           REMOVE FROM CART
-        </a>
+        </SharedBtn>
       </div>
       <div className="cart__item-price">
         <span className="cards__price">

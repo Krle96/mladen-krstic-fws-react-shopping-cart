@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import SharedBtn from '../shared/SharedBtn';
 
 export const Product = () => {
   return (
@@ -31,9 +32,9 @@ export const Product = () => {
               </button>
             </div>
           </div>
-          <a className="add-to-cart btn" href="javascript:;">
+          <SharedBtn onClick={() => console.log('clicked on add to cart')}>
             ADD TO CART
-          </a>
+          </SharedBtn>
           <div className="heart">
             <img
               src="/assets/images/favorite.png"

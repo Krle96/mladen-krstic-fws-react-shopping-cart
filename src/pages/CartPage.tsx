@@ -1,7 +1,15 @@
 import * as React from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import {CartItem} from '../components/cart/CartItem';
+import SharedBtn from '../components/shared/SharedBtn';
 
 export const CartPage = () => {
+  const navigate = useNavigate();
+
+  const handleBackToShop = () => {
+    navigate('/');
+  };
+
   return (
     <div id="page" className="site">
       <a className="skip-link screen-reader-text" href="#content">
@@ -16,18 +24,22 @@ export const CartPage = () => {
                 <div className="cart__container">
                   <div className="cart__top">
                     <div className="cart__top-btn">
-                      <a className="btn btn--black" href="/">
-                        BACK TO SHOP
-                      </a>
+                      <SharedBtn variant="black" onClick={handleBackToShop}>
+                        Back to shop
+                      </SharedBtn>
                     </div>
                     <div className="cart__title">
                       <span className="pretitle">SHOP</span>
                       <h2 className="section-title">SAME OLD SAME OLD</h2>
                     </div>
                     <div className="cart__top-btn">
-                      <a className="btn btn--black" href="javascript:;">
+                      <SharedBtn
+                        variant="black"
+                        onClick={() => {
+                          console.log('back clicked');
+                        }}>
                         CHECKOUT
-                      </a>
+                      </SharedBtn>
                     </div>
                   </div>
 

@@ -1,6 +1,7 @@
+import {Link} from 'react-router-dom';
 import React from 'react';
 
-export const MainHeader = () => {
+export const Header = () => {
   return (
     <header className="header js-site-header">
       <div className="header__overlay"></div>
@@ -32,16 +33,22 @@ export const MainHeader = () => {
               </li>
 
               <li className="main-nav__list-item" role="menuitem">
-                <a href="/" className="main-nav__list-link">
+                {/* <a href="/" className="main-nav__list-link">
                   SHOP
-                </a>
+                </a> */}
+                <Link to="/" className="main-nav__list-link">
+                  SHOP
+                </Link>
               </li>
             </ul>
           </nav>
           <div className="main-nav-cart">
-            <a href="/cart" className="main-nav-cart-link">
+            {/* <a href="/cart" className="main-nav-cart-link">
               cart
-            </a>
+            </a> */}
+            <Link to="/cart" className="main-nav-cart-link">
+              cart
+            </Link>
             <span className="main-nav-cart-qty">3</span>
           </div>
 

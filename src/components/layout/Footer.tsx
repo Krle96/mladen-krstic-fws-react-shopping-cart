@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const MainFooter = () => {
+export const Footer = () => {
   return (
     <footer className="footer">
       <div className="wrap">
