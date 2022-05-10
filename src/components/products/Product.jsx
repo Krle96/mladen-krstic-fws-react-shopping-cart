@@ -1,4 +1,5 @@
 import React from 'react';
+import IncrementDecrementCounter from '../parts/PartIncrementDecrementInput';
 import SharedBtn from '../shared/SharedBtn';
 
 export const Product = ({product}) => {
@@ -17,27 +18,8 @@ export const Product = ({product}) => {
           <span className="cards__item-body-price">${product.price}</span>
         </div>
         <div className="cards__item-footer">
-          <div className="quantity">
-            <input
-              className="qty"
-              type="number"
-              step="1"
-              min="1"
-              defaultValue="0"
-            />
-            <div className="quantity__button">
-              <button className="quantity-add js-inc quantity-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z" />
-                </svg>
-              </button>
-              <button className="quantity-remove js-dec quantity-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z" />
-                </svg>
-              </button>
-            </div>
-          </div>
+          <IncrementDecrementCounter />
+
           <SharedBtn
             onClick={() => console.log(`dodao proizvod: ${product.name}`)}>
             ADD TO CART

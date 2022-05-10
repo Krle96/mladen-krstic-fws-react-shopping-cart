@@ -64,7 +64,7 @@ export const ProductPage = () => {
                     {products.length > 0 ? (
                       <Products products={products} />
                     ) : (
-                      'No task to show'
+                      <h2>No task to show</h2>
                     )}
                   </div>
                   <div className="row cards__wrapper"></div>
