@@ -30,7 +30,7 @@ export const ProductPage = () => {
       const response = await ProductService.searchProduct();
       console.log(response);
       setProducts(response.items);
-    } catch (err) {
+    } catch (err: Error) {
       if (err.response) {
         // Not in the 200 response range
         console.log(err.response.data);
@@ -39,7 +39,6 @@ export const ProductPage = () => {
       } else {
         console.log(`Error: ${err.message}`);
       }
-    }
   };
 
   useEffect(() => {
