@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
 import Products from '../components/products/Products';
 // import api from '../api/products';
 import ProductService from '../domain/product/ProductService';
-import {addCart} from '../features/cartSlice';
 
 export const ProductPage = () => {
   // const API_URL = 'http://localhost:3500/products/23';
@@ -23,15 +21,6 @@ export const ProductPage = () => {
   //   // console.log(await ProductService.getProduct(1));
   //   // console.log(await CartService.purchase(cart));
   // }, []);
-  const [cartItemNameInput, setcartItemNameInput] = useState('');
-
-  const dispatch = useDispatch();
-
-  const handleAddcartItems = () => {
-    if (!cartItemNameInput) return;
-    dispatch(addCart(cartItemNameInput));
-    setcartItemNameInput('');
-  };
 
   const [products, setProducts] = useState([]);
 
@@ -71,13 +60,6 @@ export const ProductPage = () => {
                 <div className="cards__container">
                   <span className="pretitle">SHOP</span>
                   <h2 className="section-title">SAME OLD SAME OLD</h2>
-                  <div className="cartItem-input-container">
-                    <input
-                      value={cartItemNameInput}
-                      onChange={e => setcartItemNameInput(e.target.value)}
-                    />
-                    <button onClick={handleAddcartItems}>Add</button>
-                  </div>
                   <div className="row cards__wrapper">
                     {products.length > 0 ? (
                       <Products products={products} />

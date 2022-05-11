@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
 import IncrementDecrementCounter from '../parts/PartIncrementDecrementInput';
 import SharedBtn from '../shared/SharedBtn';
+import {addCart} from '../../features/cartSlice';
 
 export const Product = ({product}) => {
-  const addToCart = () => {
-    console.log(`dodao proizvod: ${product.name}`);
+  const [cartItemNameInput, setcartItemNameInput] = useState('');
+
+  const dispatch = useDispatch();
+
+  const handleAddCartItem = () => {
+    if (!cartItemNameInput) return;
+    dispatch(addCart(cartItemNameInput));
+    setcartItemNameInput('');
   };
 
   return (
@@ -21,10 +29,14 @@ export const Product = ({product}) => {
           <span className="cards__item-body-name">{product.name}</span>
           <span className="cards__item-body-price">${product.price}</span>
         </div>
+        <input
+          value={cartItemNameInput}
+          onChange={e => setcartItemNameInput(e.target.value)}
+        />
         <div className="cards__item-footer">
           <IncrementDecrementCounter />
 
-          <SharedBtn onClick={() => addToCart()}>ADD TO CART</SharedBtn>
+          <SharedBtn onClick={() => handleAddCartItem()}>ADD TO CART</SharedBtn>
           <div className="heart">
             <img
               src="/assets/images/favorite.png"

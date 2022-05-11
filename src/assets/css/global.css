@@ -5184,6 +5184,7 @@ a:active {
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
+  margin-top: 15px;
 }
 
 .quantity {
