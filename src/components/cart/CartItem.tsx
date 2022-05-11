@@ -1,11 +1,15 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import {removeCartItem} from '../../features/cartSlice';
 import SharedBtn from '../shared/SharedBtn';
 
 interface cartItemTypes {
   name: string;
+  index: number;
 }
 
-export const CartItem = ({name}: cartItemTypes) => {
+export const CartItem = ({name, index}: cartItemTypes) => {
+  const dispatch = useDispatch();
   return (
     <div className="cart__item">
       <div className="cart__item-body-image">
@@ -23,7 +27,10 @@ export const CartItem = ({name}: cartItemTypes) => {
       </div>
       <div className="cart__item-button">
         <SharedBtn
-          onClick={() => console.log('remove from cart clicked')}
+          // onClick={() => console.log('remove from cart clicked')}
+          onClick={() => {
+            dispatch(removeCartItem(index));
+          }}
           size="sm">
           REMOVE FROM CART
         </SharedBtn>

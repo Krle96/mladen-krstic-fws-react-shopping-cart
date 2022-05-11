@@ -50,8 +50,8 @@ export const CartPage = () => {
                   </div>
 
                   <div className="row cart__wrapper">
-                    {cartItems.map(name => {
-                      return <CartItem name={name} />;
+                    {cartItems.map((name, index) => {
+                      return <CartItem name={name} index={index} />;
                     })}
                   </div>
                 </div>
