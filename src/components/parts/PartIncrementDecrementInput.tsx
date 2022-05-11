@@ -18,6 +18,7 @@ const IncrementDecrementCounter = () => {
   return (
     <div className="quantity">
       <input
+        id="quantityInput"
         className="qty"
         type="number"
         step="1"

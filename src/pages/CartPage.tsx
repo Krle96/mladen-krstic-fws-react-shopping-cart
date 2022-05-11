@@ -1,10 +1,14 @@
 import * as React from 'react';
+import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import {CartItem} from '../components/cart/CartItem';
 import SharedBtn from '../components/shared/SharedBtn';
 import CartService from '../domain/cart/cartService';
+import {RootState} from '../app/store';
 
 export const CartPage = () => {
+  const cartItems = useSelector((state: RootState) => state.cartItems.value);
+
   const navigate = useNavigate();
 
   const handleBackToShop = () => {
@@ -46,9 +50,9 @@ export const CartPage = () => {
                   </div>
 
                   <div className="row cart__wrapper">
-                    <CartItem />
-                    <CartItem />
-                    <CartItem />
+                    {cartItems.map(name => {
+                      return <CartItem name={name} />;
+                    })}
                   </div>
                 </div>
               </div>

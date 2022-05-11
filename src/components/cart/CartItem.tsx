@@ -1,7 +1,11 @@
 import React from 'react';
 import SharedBtn from '../shared/SharedBtn';
 
-export const CartItem = () => {
+interface cartItemTypes {
+  name: string;
+}
+
+export const CartItem = ({name}: cartItemTypes) => {
   return (
     <div className="cart__item">
       <div className="cart__item-body-image">
@@ -12,7 +16,7 @@ export const CartItem = () => {
         />
       </div>
       <div className="cart__item-details">
-        <span className="cart__item-name">RANGEFINDER CAMERA</span>
+        <span className="cart__item-name">{name}</span>
         <span className="cart__item-info">BRAND: ZENIT</span>
         <span className="cart__item-info">YEAR OF MANUFACTURE: 1987</span>
         <span className="cart__item-info">AMOUNT: 1</span>

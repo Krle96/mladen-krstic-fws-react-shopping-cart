@@ -3,6 +3,10 @@ import IncrementDecrementCounter from '../parts/PartIncrementDecrementInput';
 import SharedBtn from '../shared/SharedBtn';
 
 export const Product = ({product}) => {
+  const addToCart = () => {
+    console.log(`dodao proizvod: ${product.name}`);
+  };
+
   return (
     <div className="col-xl-4 col-lg-4 col-md-6">
       <div className="cards__item">
@@ -20,10 +24,7 @@ export const Product = ({product}) => {
         <div className="cards__item-footer">
           <IncrementDecrementCounter />
 
-          <SharedBtn
-            onClick={() => console.log(`dodao proizvod: ${product.name}`)}>
-            ADD TO CART
-          </SharedBtn>
+          <SharedBtn onClick={() => addToCart()}>ADD TO CART</SharedBtn>
           <div className="heart">
             <img
               src="/assets/images/favorite.png"

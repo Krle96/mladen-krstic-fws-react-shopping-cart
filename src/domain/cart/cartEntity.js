@@ -1,6 +1,6 @@
 export default class cartEntity {
     constructor() {
-        this._items = ['a', 'b', 1, 2];
+        this._items = [];
     }
 
     get items() {
