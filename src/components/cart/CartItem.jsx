@@ -1,17 +1,9 @@
 import React from 'react';
-// import cartSlice from '../../redux/features/cartSlice';
-// import {useDispatch} from 'react-redux';
-// import {removeCartItem} from '../../redux/features/cartSlice';
 import SharedBtn from '../shared/MainBtn';
-import {useState, useEffect} from 'react';
+import {useCart} from '../../store/cart-context';
 
-// interface cartItemTypes {
-//   name: string;
-//   index: number;
-// }
-
-export const CartItem = ({id, name, price, photo, cart}) => {
-  // const dispatch = useDispatch();
+export const CartItem = ({id, name, price, photo, amount}) => {
+  const {dispatch} = useCart();
 
   return (
     <div className="cart__item">
@@ -22,15 +14,14 @@ export const CartItem = ({id, name, price, photo, cart}) => {
         <span className="cart__item-name">{name}</span>
         <span className="cart__item-info">BRAND: ZENIT</span>
         <span className="cart__item-info">YEAR OF MANUFACTURE: 1987</span>
-        <span className="cart__item-info">AMOUNT: 1</span>
+        <span className="cart__item-info">AMOUNT: {amount}</span>
       </div>
 
       <div className="cart__item-button">
         <SharedBtn
-          onClick={() => cart.removeItem(id)}
-          // onClick={() => {
-          //   dispatch(removeCartItem(index));
-          // }}
+          onClick={() => {
+            dispatch({type: 'remove', payload: id});
+          }}
           size="sm">
           REMOVE FROM CART
         </SharedBtn>

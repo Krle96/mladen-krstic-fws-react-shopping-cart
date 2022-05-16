@@ -1,29 +1,22 @@
-import React from 'react';
-import CartItemEntity from '../../domain/cartItem/cartItemEntity';
 import CartItemFactory from '../../domain/cartItem/cartItemFactory';
-// import {useDispatch} from 'react-redux';
+import {useCart} from '../../store/cart-context';
 
 import IncrementDecrementCounter from '../parts/PartIncrementDecrementInput';
 import SharedBtn from '../shared/MainBtn';
-// import {addCart} from '../../redux/features/cartSlice';
 
-export const Product = ({product, cart}) => {
-  // const [cartItemNameInput, setCartItemNameInput] = useState('');
+export const Product = ({product}) => {
+  const {state: cart, dispatch} = useCart();
 
-  const addToCart = (product, productAmount, cart) => {
+  const addToCart = (product, productAmount) => {
+    console.log('okinut');
     let cartItem = cart.findItem(product.id);
-    cartItem instanceof CartItemEntity
-      ? cartItem.increaseAmount(Number(productAmount))
-      : cart.addItem(CartItemFactory.make(product, Number(productAmount)));
+    cartItem
+      ? dispatch({type: 'increaseAmount', payload: {product, productAmount}})
+      : dispatch({
+          type: 'add',
+          payload: CartItemFactory.make(product, Number(productAmount)),
+        });
   };
-
-  // const dispatch = useDispatch();
-
-  // const handleAddCartItem = () => {
-  //   if (!cartItemNameInput) return;
-  //   dispatch(addCart(cartItemNameInput));
-  //   setCartItemNameInput('');
-  // };
 
   return (
     <div className="col-xl-4 col-lg-4 col-md-6">
@@ -46,7 +39,7 @@ export const Product = ({product, cart}) => {
         <div className="cards__item-footer">
           <IncrementDecrementCounter />
           {/* <SharedBtn onClick={() => handleAddCartItem()}>ADD TO CART</SharedBtn> */}
-          <SharedBtn onClick={() => addToCart(product, 1, cart)}>
+          <SharedBtn onClick={() => addToCart(product, 1)}>
             ADD TO CART
           </SharedBtn>
 

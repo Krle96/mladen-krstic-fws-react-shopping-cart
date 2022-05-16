@@ -8,7 +8,7 @@ const Products = ({products, cart}) => {
   return (
     <>
       {products.map(product => (
-        <Product key={product.id} product={product} cart={cart} />
+        <Product key={product.id} product={product} />
       ))}
     </>
   );

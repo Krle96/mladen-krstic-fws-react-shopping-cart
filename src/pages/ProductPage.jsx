@@ -4,7 +4,7 @@ import Products from '../components/products/Products';
 // import api from '../api/products';
 import ProductService from '../domain/product/ProductService';
 
-export const ProductPage = ({cart}) => {
+export const ProductPage = () => {
   // const API_URL = 'http://localhost:3500/products/23';
   // useEffect(() => {
   //   const fetchItems = async () => {
@@ -22,7 +22,6 @@ export const ProductPage = ({cart}) => {
   //   // console.log(await ProductService.getProduct(1));
   //   // console.log(await CartService.purchase(cart));
   // }, []);
-
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -62,7 +61,7 @@ export const ProductPage = ({cart}) => {
                   <h2 className="section-title">SAME OLD SAME OLD</h2>
                   <div className="row cards__wrapper">
                     {products.length > 0 ? (
-                      <Products products={products} cart={cart} />
+                      <Products products={products} />
                     ) : (
                       <h2>No task to show</h2>
                     )}

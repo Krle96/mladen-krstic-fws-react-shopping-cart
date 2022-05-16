@@ -1,6 +1,6 @@
 export default class CartEntity {
-    constructor() {
-        this._items = [];
+    constructor(items = []) {
+        this._items = items;
     }
 
     get items() {
@@ -13,13 +13,10 @@ export default class CartEntity {
 
     addItem(item) {
         this._items.push(item);
-        console.log(this._items);
     }
 
     removeItem(id) {
         this._items = this._items.filter((item) => item.product.id !== id);
-        console.log(this._items);
-
     }
 
     calculateTotal() {

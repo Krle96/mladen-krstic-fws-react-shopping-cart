@@ -1,21 +1,11 @@
-import * as React from 'react';
-// import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import {CartItem} from '../components/cart/CartItem';
 import SharedBtn from '../components/shared/MainBtn';
 import CartService from '../domain/cart/cartService';
-import {useState, useEffect} from 'react';
+import {useCart} from '../store/cart-context';
 
-// import cartSlice from '../redux/features/cartSlice';
-// import {RootState} from '../redux/store';
-
-export const CartPage = ({cart}) => {
-  // const cartItems = useSelector((state: RootState) => state.cartItems.value);
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    setCartItems(cart.items);
-  }, [cart.items]);
+export const CartPage = () => {
+  const {state: cart} = useCart();
 
   const navigate = useNavigate();
 
@@ -28,7 +18,6 @@ export const CartPage = ({cart}) => {
       <a className="skip-link screen-reader-text" href="#content">
         Skip to content
       </a>
-
       <div id="content" className="site-content">
         <div id="primary" className="content-area">
           <main id="main" className="site-main">
@@ -50,21 +39,20 @@ export const CartPage = ({cart}) => {
                         variant="black"
                         onClick={() => {
                           // console.log('checkout clicked');
-                          CartService.completeCheckout(cartItems);
+                          CartService.completeCheckout(cart._items);
                         }}>
                         CHECKOUT
                       </SharedBtn>
                     </div>
                   </div>
 
-                  <h1>Total: ${cart.calculateTotal()}</h1>
+                  {/* <h1>Total: ${cart.calculateTotal()}</h1> */}
 
                   <div className="row cart__wrapper">
                     {/* {cartItems.map((name, index) => {
                       return <CartItem key={index} name={name} index={index} />;
                     })} */}
-                    {cartItems.map(item => {
-                      // console.log(item.product.name);
+                    {cart._items.map(item => {
                       return (
                         <CartItem
                           key={item.product.id}
@@ -72,7 +60,7 @@ export const CartPage = ({cart}) => {
                           id={item.product.id}
                           price={item.product.price}
                           photo={item.product.photoUrl}
-                          cart={cart}
+                          amount={item.amount}
                         />
                         // `<p>Radi</p>`
                       );
