@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Products from '../components/products/Products';
+
 // import api from '../api/products';
 import ProductService from '../domain/product/ProductService';
 
-export const ProductPage = () => {
+export const ProductPage = ({cart}) => {
   // const API_URL = 'http://localhost:3500/products/23';
   // useEffect(() => {
   //   const fetchItems = async () => {
@@ -28,9 +29,8 @@ export const ProductPage = () => {
     try {
       // const response = await api.get('/products/');
       const response = await ProductService.searchProduct();
-      console.log(response);
       setProducts(response.items);
-    } catch (err: any) {
+    } catch (err) {
       if (err.response) {
         // Not in the 200 response range
         console.log(err.response.data);
@@ -62,7 +62,7 @@ export const ProductPage = () => {
                   <h2 className="section-title">SAME OLD SAME OLD</h2>
                   <div className="row cards__wrapper">
                     {products.length > 0 ? (
-                      <Products products={products} />
+                      <Products products={products} cart={cart} />
                     ) : (
                       <h2>No task to show</h2>
                     )}

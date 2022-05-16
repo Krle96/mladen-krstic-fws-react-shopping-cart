@@ -1,13 +1,21 @@
 import * as React from 'react';
-import {useSelector} from 'react-redux';
+// import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import {CartItem} from '../components/cart/CartItem';
-import SharedBtn from '../components/shared/SharedBtn';
+import SharedBtn from '../components/shared/MainBtn';
 import CartService from '../domain/cart/cartService';
-import {RootState} from '../app/store';
+import {useState, useEffect} from 'react';
 
-export const CartPage = () => {
-  const cartItems = useSelector((state: RootState) => state.cartItems.value);
+// import cartSlice from '../redux/features/cartSlice';
+// import {RootState} from '../redux/store';
+
+export const CartPage = ({cart}) => {
+  // const cartItems = useSelector((state: RootState) => state.cartItems.value);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    setCartItems(cart.items);
+  }, [cart.items]);
 
   const navigate = useNavigate();
 
@@ -42,17 +50,34 @@ export const CartPage = () => {
                         variant="black"
                         onClick={() => {
                           // console.log('checkout clicked');
-                          CartService.completeCheckout();
+                          CartService.completeCheckout(cartItems);
                         }}>
                         CHECKOUT
                       </SharedBtn>
                     </div>
                   </div>
 
+                  <h1>Total: ${cart.calculateTotal()}</h1>
+
                   <div className="row cart__wrapper">
-                    {cartItems.map((name, index) => {
-                      return <CartItem name={name} index={index} />;
+                    {/* {cartItems.map((name, index) => {
+                      return <CartItem key={index} name={name} index={index} />;
+                    })} */}
+                    {cartItems.map(item => {
+                      // console.log(item.product.name);
+                      return (
+                        <CartItem
+                          key={item.product.id}
+                          name={item.product.name}
+                          id={item.product.id}
+                          price={item.product.price}
+                          photo={item.product.photoUrl}
+                          cart={cart}
+                        />
+                        // `<p>Radi</p>`
+                      );
                     })}
+                    {/* <CartItem name={cart.items[0].name} /> */}
                   </div>
                 </div>
               </div>

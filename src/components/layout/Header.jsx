@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
 
-export const Header = () => {
+export const Header = ({cart}) => {
   return (
     <header className="header js-site-header">
       <div className="header__overlay"></div>
@@ -56,7 +56,7 @@ export const Header = () => {
             <Link to="/cart" className="main-nav-cart-link">
               cart
             </Link>
-            <span className="main-nav-cart-qty">3</span>
+            <span className="main-nav-cart-qty">{cart.getItemsAmount()}</span>
           </div>
 
           <a href="/" className="site-header__hamburger hamburger js-menu-btn">

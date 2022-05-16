@@ -18,9 +18,6 @@ export const cartSlice = createSlice({
     removeCartItem: (state, action: PayloadAction<number>) => {
       state.value.splice(action.payload, 1);
     },
-    numOfItems: state => {
-      return state.value.length;
-    },
   },
 });
 

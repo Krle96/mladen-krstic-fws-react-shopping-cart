@@ -13,15 +13,15 @@ export default class CartService {
         return cart;
     }
 
-    static completeCheckout() {
-        const cart = new CartEntity();
-        const checkoutItems = cart.items;
+    static completeCheckout(items) {
+        // const cart = new CartEntity();
+        // const checkoutItems = cart.items;
         // console.log(checkoutItems);
         // console.log(cart instanceof CartEntity);
-
-        if (cart instanceof CartEntity) {
-            return CartAPIGateway.completeCheckout(checkoutItems);
-        }
+        // if (cart instanceof CartEntity) {
+        //     return CartAPIGateway.completeCheckout(checkoutItems);
+        // }
+        return CartAPIGateway.completeCheckout(items)
     }
 
 }

@@ -1,11 +1,14 @@
 import {Product} from './Product';
+// import {useState} from 'react';
+// import CartService from '../../domain/cart/cartService';
 
-const Products = ({products}) => {
+const Products = ({products, cart}) => {
+  // const [cartItems, setCartItems] = useState([]);
+
   return (
     <>
-      {console.log(products)}
       {products.map(product => (
-        <Product key={product.id} product={product} />
+        <Product key={product.id} product={product} cart={cart} />
       ))}
     </>
   );

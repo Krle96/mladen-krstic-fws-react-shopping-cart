@@ -29,12 +29,11 @@ class ApiClient {
                 case 'Purchase':
                     try {
                         data.forEach((item) => {
-                            this._getProductMock(item.product_id);
+                            this._getProductMock(item.product.id);
                             if (item.amount < 1) throw new Exception('INVALID_AMOUNT', 406);
-                            console.log(`Item ${item.product_id} amount ${item.amount} valid!`);
+                            console.log(`Item ${item.product.id} amount ${item.amount} valid!`);
                         });
                         resolve();
-                        // console.log('radi checkout')
                     } catch (exception) {
                         console.log(exception);
                         reject(new Exception('INVALID_PURCHASE_DATA', 406, data));

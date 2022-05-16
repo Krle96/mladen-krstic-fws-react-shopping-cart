@@ -1,19 +1,29 @@
-import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import React from 'react';
+import CartItemEntity from '../../domain/cartItem/cartItemEntity';
+import CartItemFactory from '../../domain/cartItem/cartItemFactory';
+// import {useDispatch} from 'react-redux';
+
 import IncrementDecrementCounter from '../parts/PartIncrementDecrementInput';
-import SharedBtn from '../shared/SharedBtn';
-import {addCart} from '../../features/cartSlice';
+import SharedBtn from '../shared/MainBtn';
+// import {addCart} from '../../redux/features/cartSlice';
 
-export const Product = ({product}) => {
-  const [cartItemNameInput, setcartItemNameInput] = useState('');
+export const Product = ({product, cart}) => {
+  // const [cartItemNameInput, setCartItemNameInput] = useState('');
 
-  const dispatch = useDispatch();
-
-  const handleAddCartItem = () => {
-    if (!cartItemNameInput) return;
-    dispatch(addCart(cartItemNameInput));
-    setcartItemNameInput('');
+  const addToCart = (product, productAmount, cart) => {
+    let cartItem = cart.findItem(product.id);
+    cartItem instanceof CartItemEntity
+      ? cartItem.increaseAmount(Number(productAmount))
+      : cart.addItem(CartItemFactory.make(product, Number(productAmount)));
   };
+
+  // const dispatch = useDispatch();
+
+  // const handleAddCartItem = () => {
+  //   if (!cartItemNameInput) return;
+  //   dispatch(addCart(cartItemNameInput));
+  //   setCartItemNameInput('');
+  // };
 
   return (
     <div className="col-xl-4 col-lg-4 col-md-6">
@@ -29,14 +39,17 @@ export const Product = ({product}) => {
           <span className="cards__item-body-name">{product.name}</span>
           <span className="cards__item-body-price">${product.price}</span>
         </div>
-        <input
+        {/* <input
           value={cartItemNameInput}
-          onChange={e => setcartItemNameInput(e.target.value)}
-        />
+          onChange={e => setCartItemNameInput(e.target.value)}
+        /> */}
         <div className="cards__item-footer">
           <IncrementDecrementCounter />
+          {/* <SharedBtn onClick={() => handleAddCartItem()}>ADD TO CART</SharedBtn> */}
+          <SharedBtn onClick={() => addToCart(product, 1, cart)}>
+            ADD TO CART
+          </SharedBtn>
 
-          <SharedBtn onClick={() => handleAddCartItem()}>ADD TO CART</SharedBtn>
           <div className="heart">
             <img
               src="/assets/images/favorite.png"
