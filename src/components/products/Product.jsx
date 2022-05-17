@@ -1,10 +1,19 @@
+import {useState} from 'react';
 import CartItemFactory from '../../domain/cartItem/cartItemFactory';
 import {useCart} from '../../store/cart-context';
+
 import IncrementDecrementCounter from '../parts/PartIncrementDecrementInput';
 import SharedBtn from '../shared/MainBtn';
 
 export const Product = ({product}) => {
   const {state: cart, dispatch} = useCart();
+  const [amount, setAmount] = useState(1);
+
+  const getAmount = amount => {
+    console.log('In product.jsx');
+    console.log(amount);
+    setAmount(amount);
+  };
 
   const addToCart = (product, productAmount) => {
     let cartItem = cart.findItem(product.id);
@@ -32,8 +41,8 @@ export const Product = ({product}) => {
         </div>
 
         <div className="cards__item-footer">
-          <IncrementDecrementCounter />
-          <SharedBtn onClick={() => addToCart(product, 1)}>
+          <IncrementDecrementCounter onGetAmount={getAmount} />
+          <SharedBtn onClick={() => addToCart(product, amount)}>
             ADD TO CART
           </SharedBtn>
 

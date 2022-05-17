@@ -1,18 +1,25 @@
 import React, {useState} from 'react';
 
-const IncrementDecrementCounter = () => {
-  const [amount, setAmount] = useState(0);
+const IncrementDecrementCounter = ({onGetAmount}) => {
+  const [amount, setAmount] = useState(1);
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleChange = e => {
     setAmount(Number(e.currentTarget.value));
+    getAmount();
   };
 
   const incrementAmount = () => {
     setAmount(Number(amount) + 1);
+    getAmount();
   };
 
   const decrementAmount = () => {
-    if (amount > 0) setAmount(Number(amount) - 1);
+    if (amount > 1) setAmount(Number(amount) - 1);
+    getAmount();
+  };
+
+  const getAmount = () => {
+    onGetAmount(Number(amount));
   };
 
   return (
