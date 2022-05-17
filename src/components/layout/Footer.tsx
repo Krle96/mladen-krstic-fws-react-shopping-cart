@@ -7,9 +7,6 @@ export const Footer = () => {
       <div className="wrap">
         <div className="footer__wrap">
           <div className="footer__logo">
-            {/* <a href="/" className="header__home">
-              <img src="/assets/images/LogoFooter.png" alt="" />
-            </a> */}
             <Link to="/" className="header__home">
               <img src="/assets/images/LogoFooter.png" alt="" />
             </Link>

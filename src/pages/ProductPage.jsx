@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import Products from '../components/products/Products';
-
-// import api from '../api/products';
 import ProductService from '../domain/product/ProductService';
 
 export const ProductPage = () => {
@@ -26,7 +24,6 @@ export const ProductPage = () => {
 
   const fetchProducts = async () => {
     try {
-      // const response = await api.get('/products/');
       const response = await ProductService.searchProduct();
       setProducts(response.items);
     } catch (err) {

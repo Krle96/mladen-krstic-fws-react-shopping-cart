@@ -29,7 +29,6 @@ export default class CartEntity {
 
     getItemsAmount() {
         const totalAmount = this._items.length;
-        console.log(totalAmount);
         return totalAmount;
     }
 

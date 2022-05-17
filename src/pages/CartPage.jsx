@@ -38,7 +38,6 @@ export const CartPage = () => {
                       <SharedBtn
                         variant="black"
                         onClick={() => {
-                          // console.log('checkout clicked');
                           CartService.completeCheckout(cart._items);
                         }}>
                         CHECKOUT
@@ -46,13 +45,10 @@ export const CartPage = () => {
                     </div>
                   </div>
 
-                  {/* <h1>Total: ${cart.calculateTotal()}</h1> */}
+                  <h1>Total: ${cart.calculateTotal()}</h1>
 
                   <div className="row cart__wrapper">
-                    {/* {cartItems.map((name, index) => {
-                      return <CartItem key={index} name={name} index={index} />;
-                    })} */}
-                    {cart._items.map(item => {
+                    {cart.items.map(item => {
                       return (
                         <CartItem
                           key={item.product.id}
@@ -62,10 +58,8 @@ export const CartPage = () => {
                           photo={item.product.photoUrl}
                           amount={item.amount}
                         />
-                        // `<p>Radi</p>`
                       );
                     })}
-                    {/* <CartItem name={cart.items[0].name} /> */}
                   </div>
                 </div>
               </div>

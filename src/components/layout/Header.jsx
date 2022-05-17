@@ -1,21 +1,15 @@
 import {Link} from 'react-router-dom';
-import React from 'react';
+import {useCart} from '../../store/cart-context';
 
-export const Header = ({cart}) => {
+export const Header = () => {
+  const {state: cart} = useCart();
+
   return (
     <header className="header js-site-header">
       <div className="header__overlay"></div>
       <div className="wrap">
         <div className="header__container">
           <div className="header__home-logo">
-            {/* <a href="/" className="header__home">
-              {' '}
-              <img
-                src="/assets/images/LogoHeader.png"
-                alt=""
-                className="header__logo"
-              />{' '}
-            </a> */}
             <Link to="/" className="header__home">
               <img
                 src="/assets/images/LogoHeader.png"
@@ -40,9 +34,6 @@ export const Header = ({cart}) => {
               </li>
 
               <li className="main-nav__list-item" role="menuitem">
-                {/* <a href="/" className="main-nav__list-link">
-                  SHOP
-                </a> */}
                 <Link to="/" className="main-nav__list-link">
                   SHOP
                 </Link>
@@ -50,9 +41,6 @@ export const Header = ({cart}) => {
             </ul>
           </nav>
           <div className="main-nav-cart">
-            {/* <a href="/cart" className="main-nav-cart-link">
-              cart
-            </a> */}
             <Link to="/cart" className="main-nav-cart-link">
               cart
             </Link>
