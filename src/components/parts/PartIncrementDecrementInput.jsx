@@ -1,26 +1,27 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 const IncrementDecrementCounter = ({onGetAmount}) => {
   const [amount, setAmount] = useState(1);
 
   const handleChange = e => {
     setAmount(Number(e.currentTarget.value));
-    getAmount();
   };
 
   const incrementAmount = () => {
     setAmount(Number(amount) + 1);
-    getAmount();
   };
 
   const decrementAmount = () => {
     if (amount > 1) setAmount(Number(amount) - 1);
-    getAmount();
   };
 
   const getAmount = () => {
     onGetAmount(Number(amount));
   };
+
+  useEffect(() => {
+    getAmount();
+  }, [amount]);
 
   return (
     <div className="quantity">
@@ -30,7 +31,7 @@ const IncrementDecrementCounter = ({onGetAmount}) => {
         type="number"
         step="1"
         min="1"
-        onChange={handleChange}
+        onChange={e => handleChange(e)}
         value={amount}
       />
       <div className="quantity__button">

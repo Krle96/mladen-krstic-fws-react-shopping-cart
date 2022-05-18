@@ -10,8 +10,6 @@ export const Product = ({product}) => {
   const [amount, setAmount] = useState(1);
 
   const getAmount = amount => {
-    console.log('In product.jsx');
-    console.log(amount);
     setAmount(amount);
   };
 
