@@ -12,8 +12,8 @@ export const CartItem = ({id, name, price, photo, amount}) => {
       </div>
       <div className="cart__item-details">
         <span className="cart__item-name">{name}</span>
-        <span className="cart__item-info">BRAND: ZENIT</span>
-        <span className="cart__item-info">YEAR OF MANUFACTURE: 1987</span>
+        {/* <span className="cart__item-info">BRAND: ZENIT</span> */}
+        {/* <span className="cart__item-info">YEAR OF MANUFACTURE: 1987</span> */}
         <span className="cart__item-info">AMOUNT: {amount}</span>
       </div>
 
