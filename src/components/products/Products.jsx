@@ -1,6 +1,6 @@
 import {Product} from './Product';
 
-const Products = ({products, cart}) => {
+const Products = ({products}) => {
   return (
     <>
       {products.map(product => (

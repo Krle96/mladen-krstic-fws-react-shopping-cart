@@ -3,23 +3,6 @@ import Products from '../components/products/Products';
 import ProductService from '../domain/product/ProductService';
 
 export const ProductPage = () => {
-  // const API_URL = 'http://localhost:3500/products/23';
-  // useEffect(() => {
-  //   const fetchItems = async () => {
-  //     try {
-  //       const response = await fetch(API_URL);
-  //       const listItems = await response.json();
-  //       console.log(listItems);
-  //     } catch (err) {
-  //       console.log(err.stack);
-  //     }
-  //   };
-  //   // (async () => await fetchItems())();
-  //   fetchItems();
-  //   // console.log(await ProductService.search());
-  //   // console.log(await ProductService.getProduct(1));
-  //   // console.log(await CartService.purchase(cart));
-  // }, []);
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {

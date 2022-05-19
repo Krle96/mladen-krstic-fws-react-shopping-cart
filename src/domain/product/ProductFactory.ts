@@ -8,14 +8,8 @@ type ResponseType = {
 };
 
 export default class ProductFactory {
-  //   reconstitute(productData: any) {
-  //     return new ProductEntity()
-  //       .setId(productData.id)
-  //       .setName(productData.name)
-  //       .setPhotoUrl(productData.photoUrl);
-  //   }
-  reconstitute(data: any) {
-    const items: any = [];
+  reconstitute(data: []) {
+    const items: {}[] = [];
 
     if (data && data.length > 0) {
       data.forEach((item: ResponseType) => {

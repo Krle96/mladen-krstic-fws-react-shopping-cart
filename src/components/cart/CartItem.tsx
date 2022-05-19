@@ -2,7 +2,15 @@ import React from 'react';
 import SharedBtn from '../shared/MainBtn';
 import {useCart} from '../../store/cart-context';
 
-export const CartItem = ({id, name, price, photo, amount}) => {
+type Props = {
+  id: number;
+  name: string;
+  price: number;
+  photo: string;
+  amount: number;
+};
+
+export const CartItem = ({id, name, price, photo, amount}: Props) => {
   const {dispatch} = useCart();
 
   return (
