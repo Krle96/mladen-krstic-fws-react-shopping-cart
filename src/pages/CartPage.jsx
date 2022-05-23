@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 import {CartItem} from '../components/cart/CartItem';
-import SharedBtn from '../components/shared/MainBtn';
+import MainBtn from '../components/shared/MainBtn';
 import CartService from '../domain/cart/cartService';
 import {useCart} from '../store/cart-context';
 
@@ -26,22 +26,22 @@ export const CartPage = () => {
                 <div className="cart__container">
                   <div className="cart__top">
                     <div className="cart__top-btn">
-                      <SharedBtn variant="black" onClick={handleBackToShop}>
+                      <MainBtn variant="black" onClick={handleBackToShop}>
                         Back to shop
-                      </SharedBtn>
+                      </MainBtn>
                     </div>
                     <div className="cart__title">
                       <span className="pretitle">SHOP</span>
                       <h2 className="section-title">SAME OLD SAME OLD</h2>
                     </div>
                     <div className="cart__top-btn">
-                      <SharedBtn
+                      <MainBtn
                         variant="black"
                         onClick={() => {
                           CartService.completeCheckout(cart._items);
                         }}>
                         CHECKOUT
-                      </SharedBtn>
+                      </MainBtn>
                     </div>
                   </div>
 

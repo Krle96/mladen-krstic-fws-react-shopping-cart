@@ -3,7 +3,7 @@ import CartItemFactory from '../../domain/cartItem/cartItemFactory';
 import {useCart} from '../../store/cart-context';
 
 import IncrementDecrementCounter from '../parts/PartIncrementDecrementInput';
-import SharedBtn from '../shared/MainBtn';
+import MainBtn from '../shared/MainBtn';
 
 export const Product = ({product}) => {
   const {state: cart, dispatch} = useCart();
@@ -40,9 +40,9 @@ export const Product = ({product}) => {
 
         <div className="cards__item-footer">
           <IncrementDecrementCounter onGetAmount={getAmount} />
-          <SharedBtn onClick={() => addToCart(product, amount)}>
+          <MainBtn onClick={() => addToCart(product, amount)}>
             ADD TO CART
-          </SharedBtn>
+          </MainBtn>
 
           <div className="heart">
             <img

@@ -8,7 +8,7 @@ interface Props {
   children: ReactNode;
 }
 
-const SharedBtn = ({
+const MainBtn = ({
   variant = 'white',
   size = 'md',
   onClick,
@@ -25,4 +25,4 @@ const SharedBtn = ({
   </button>
 );
 
-export default SharedBtn;
+export default MainBtn;

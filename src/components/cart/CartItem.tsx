@@ -1,5 +1,5 @@
 import React from 'react';
-import SharedBtn from '../shared/MainBtn';
+import MainBtn from '../shared/MainBtn';
 import {useCart} from '../../store/cart-context';
 
 type Props = {
@@ -26,13 +26,13 @@ export const CartItem = ({id, name, price, photo, amount}: Props) => {
       </div>
 
       <div className="cart__item-button">
-        <SharedBtn
+        <MainBtn
           onClick={() => {
             dispatch({type: 'remove', payload: id});
           }}
           size="sm">
           REMOVE FROM CART
-        </SharedBtn>
+        </MainBtn>
       </div>
       <div className="cart__item-price">
         <span className="cards__price">
